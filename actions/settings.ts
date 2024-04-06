@@ -34,7 +34,6 @@ export const settings = async (
 
     if (values.email && values.email !== user.email) {
         if (values.emailVerificationOTP) {
-            console.log(values.emailVerificationOTP)
             const verificationToken = await db.verificationToken.findFirst({
                 where: {
                     email: values.email,
@@ -44,7 +43,6 @@ export const settings = async (
             if (!verificationToken) {
                 return { error: "Invalid OTP!" };
             }
-            console.log(values.emailVerificationOTP, verificationToken.token)
             if (values.emailVerificationOTP !== verificationToken.token) {
                 return { error: "Invalid code!" };
             }
