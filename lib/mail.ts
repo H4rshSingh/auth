@@ -15,7 +15,7 @@ export const sendVerificationEmail = async (
     token: string,
     name : string | null
 ) => {
-    const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`
+    const confirmLink = `${process.env.ROOT_URL}/auth/new-verification?token=${token}`
 
     await transporter.sendMail({
         from: 'not.reply.mails@email.com', // sender address
@@ -25,7 +25,7 @@ export const sendVerificationEmail = async (
             <div style="font-family: Helvetica,Arial,sans-serif; min-width:1200px; overflow:auto; line-height:2">
                 <div style="margin:10px auto; width:70%; padding:20px 0">
                     <div style="border-bottom:1px solid #eee">
-                        <a href="http://chatmeon.vercel.app" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
+                        <a href=${process.env.ROOT_URL} style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
                     </div>
                     <p style="font-size:1.1em">Hi, ${name}</p>
                     <p>Thank you for signing up on Auth.</p>
@@ -52,7 +52,7 @@ export const sendPasswordResetEmail = async (
     token: string, 
     name : string | null
 ) => {
-    const resetLink = `http://localhost:3000/auth/new-password?token=${token}`
+    const resetLink = `${process.env.ROOT_URL}/auth/new-password?token=${token}`
 
     await transporter.sendMail({
         from: 'not.reply.mails@email.com', // sender address
@@ -62,7 +62,7 @@ export const sendPasswordResetEmail = async (
         <div style="font-family: Helvetica,Arial,sans-serif; min-width:1200px; overflow:auto; line-height:2">
         <div style="margin:10px auto; width:70%; padding:20px 0">
             <div style="border-bottom:1px solid #eee">
-                <a href="http://chatmeon.vercel.app" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
+                <a href=${process.env.ROOT_URL} style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
             </div>
             <p style="font-size:1.1em">Hi, ${name}</p>
             <p>Thank you for signing up on Auth.</p>
@@ -98,7 +98,7 @@ export const sendTwoFactorTokenEmail = async (
         <div style="font-family: Helvetica,Arial,sans-serif;min-width:1200px;overflow:auto;line-height:2">
                 <div style="margin:10px auto;width:70%;padding:20px 0">
                     <div style="border-bottom:1px solid #eee">
-                        <a href="http://chatmeon.vercel.app" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
+                        <a href=${process.env.ROOT_URL} style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
                     </div>
                     <p style="font-size:1.1em">Hi, ${name}</p>
                     <p>Thank you for using Auth.</p>
@@ -131,7 +131,7 @@ export const sendChangeEmailToken = async (
         <div style="font-family: Helvetica,Arial,sans-serif;min-width:1200px;overflow:auto;line-height:2">
                 <div style="margin:10px auto;width:70%;padding:20px 0">
                     <div style="border-bottom:1px solid #eee">
-                        <a href="http://chatmeon.vercel.app" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
+                        <a href=${process.env.ROOT_URL} style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Auth</a>
                     </div>
                     <p style="font-size:1.1em">Hi, ${name}</p>
                     <p>Thank you for using Auth.</p>
